@@ -55,7 +55,7 @@ print("h = ", h)
 r = secrets.randbelow(q)
 password = input("Enter your password: ")
 S = int.from_bytes(password.encode(), byteorder='big')
-S_prime = (pow(g, S, p) * pow(h, r, p)) % p
+S_prime = (pow(g, S) * pow(h, r)) % p
 
 # Generate coefficients and x-coordinates for Shamir's scheme
 n = 3  # Threshold for secret reconstruction
