@@ -61,7 +61,6 @@ def generate_registration_data(password, username):
     print("h = ", h)
 
     # Generate the one-time secret S'
-    password = input("Enter your password: ")
     S = int.from_bytes(password.encode(), byteorder='big')
     S_prime = (pow(g, S) * pow(h, r)) % p
 
@@ -75,7 +74,6 @@ def generate_registration_data(password, username):
 
     # Hash the password and username to get the encryption key and username_hash
     key = hashlib.sha256(password.encode()).digest()
-    username = input("Enter your username: ")
     username_hash = hashlib.sha256(username.encode()).digest()
 
     # Encrypt the x-coordinates and setup parameters
